@@ -1,0 +1,18 @@
+1. clone repository
+2. hidupkan database di xampp
+3. install sequelize cli dengan mengetikan command diterminal "npm i -g sequelize-cli"
+4. jalankan "npm install" di terminal tepat di folder project
+5. install paket dengan menjalankan command "npm install --save mysql2" di terminal tepat di folder project
+6. buat database dengan menjalankan command  "sequelize db:create" di terminal tepat di folder project
+7. migrasi dengan menjalankan command "sequelize db:migrate" di terminal tepat di folder project
+8. lakukan seeder dengan menjalankan command "sequelize db:seed:all" di terminal tepat di folder project
+9. jalankan project dengan command "npm run dev" lalu buka "http://localhost:8000" di browser
+
+Akun Admin
+email: lando45@ymail.com
+password: 123456
+
+
+Akun Staff
+email: wilando45@ymail.com
+password: 123456
