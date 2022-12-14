@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="id">
+  
+  <%- include('../partials/head.ejs') %>
+    <title>Profil Staff</title>
+    <link href="/css/navAndSidebar.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+  </head>
+
+  <body>
+    <%- include('../partials/navAndSideBar.ejs') %>
+      <div class="container mt-5 bg-white p-5">
+        <h1 class="text-center">Profil Staff</h1>
+        <form class="mt-3">
+          <div class="row mb-3 justify-content-center">
+            <label for="nama" class="col-sm-2 col-form-label">Nama</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="nama" value="<%= user.nama %>" disabled readonly>
+              <div id="cekNama" class="invalid-feedback">
+                Nama tidak boleh kosong
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3 justify-content-center">
+            <label for="email" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="email" value="<%= user.email %>" disabled readonly>
+              <div id="cekEmail" class="invalid-feedback">
+                Email tidak boleh kosong
+              </div>
+              <div id="cekEmailFormat" class="invalid-feedback">
+                Email tidak valid
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3 justify-content-center">
+            <label for="divisi" class="col-sm-2 col-form-label">Divisi</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="divisi" value="<%= user.divisi %>" disabled readonly>
+              <div id="cekDivisi" class="invalid-feedback">
+                Divisi tidak boleh kosong
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3 justify-content-center">
+            <label for="tahun" class="col-sm-2 col-form-label">Tahun Masuk</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="tahun" 
+               value="<%= new Date(user.tahun_masuk).getFullYear() %>" disabled readonly
+              >
+              <div id="cekTahun" class="invalid-feedback">
+                Tahun masuk tidak boleh kosong
+              </div>
+            </div>
+          </div>
+          
+          <div class="hstack mt-5">
+            <button onclick='editTombol()' class="btn btn-primary btn-lg mx-auto mb-3" id="edit" 
+              type="button">
+               Ubah Password
+            </button>
+          </div>
+        </form>
+      </div>
+    <%- include('../partials/navAndSideBarLanjutan.ejs') %>
+      
+    <%- include('../partials/scriptCdn.ejs') %>
+    <%- include('../partials/dashboardScript.ejs') %>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script type="text/javascript">
+     
+      // tambah button
+      function editTombol() {
+        window.location.replace(`${API_URL}/dashboard/ubah_password`)  
+      }
+
+    </script>
+
+  </body>
+
+</html>

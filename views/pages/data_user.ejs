@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="id">
+  
+  <%- include('../partials/head.ejs') %>
+    <title>Data User</title>
+    <link href="/css/navAndSidebar.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css"></style>
+    
+  </head>
+
+  <body>
+    <%- include('../partials/navAndSideBar.ejs') %>
+      <div class="user-table w-auto m-5 bg-light p-5">
+        <div class="hstack">
+          <a class="btn btn-primary ms-auto mb-3" href="<%= baseUrl %>/dashboard/tambah_user">
+            <i class="bi bi-plus-lg"></i> Tambah User
+          </a>
+        </div>
+        <table id="userTable" class="table table-striped table-bordered table-responsive table-hover" >  
+        <thead>  
+          <tr>  
+            <th>Nama</th>  
+            <th>Email</th>  
+            <th>Divisi</th>  
+            <th>Jabatan</th>
+            <th>Tahun Masuk</th>
+            <th>Aksi</th>  
+          </tr>  
+        </thead>  
+        <tbody> 
+          <% listUsers.forEach((user)=>{ %>
+            <tr>  
+              <td><%= user.nama %></td>  
+              <td><%= user.email %></td>  
+              <td><%= user.divisi %></td>  
+              <td><%= user.jabatan %></td>
+              <td><%= new Date(user.tahun_masuk).getFullYear() %></td>
+              <td>
+                  <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                    <a class="btn btn-warning" href='<%=baseUrl%>/dashboard/edit_user/<%= user.id %>'>
+                      <i class="bi bi-pencil-square"></i>
+                    </a>
+                    <button class="btn btn-danger" type="button" onclick="hapusUser(<%= user.id %>)">
+                      <i class="bi bi-trash"></i></i>
+                    </button>
+                  </div>
+              </td> 
+            </tr>       
+          <% }) %>
+           
+        </tbody>  
+        </table>
+      </div>
+    <%- include('../partials/navAndSideBarLanjutan.ejs') %>
+
+    <%- include('../partials/scriptCdn.ejs') %>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="http://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <%- include('../partials/dashboardScript.ejs') %>
+    <script>
+      $(document).ready(function(){
+        $('#userTable').dataTable();
+      });
+    </script>
+    <script type="text/javascript">
+      const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-success me-5',
+          cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+      })
+
+      function hapusUser(id) {
+        swalWithBootstrapButtons.fire({
+          title: 'Apakah Anda Yakin Ingin Menghapus User?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Ya, hapus',
+          cancelButtonText: 'Batal'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            deleteUser(id).then(()=>{window.location.replace(`${API_URL}/dashboard/data_user`)})
+            swalWithBootstrapButtons.fire(
+              'Hapus Berhasil!',
+              'User Telah Berhasil di Hapus',
+              'success'
+            )
+          } else if (
+            result.dismiss === Swal.DismissReason.cancel
+          ) {
+            
+          }
+        })
+    }
+
+    </script>
+
+  </body>
+
+</html>

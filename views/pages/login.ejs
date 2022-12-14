@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="id">
+    
+  <%- include('../partials/head.ejs') %>
+    <title>Login</title>
+    <link rel="stylesheet" href="css/login.css">
+  </head>
+  <body>
+    
+    <div class="d-none d-md-flex flex-row justify-content-between align-items-center m-5">
+      <p class="auto-config">AutoConfig</p>
+      <div class="d-flex flex-row align-items-center">
+        <img src="images/icon+.png" class="img-fluid mx-2" alt="gambar">
+        <div class="we-speak mx-2">We Speak</div>
+        <div class="beyond-connectivity mx-2">Beyond Connectivity</div>
+        <div class="subsidiary-of mx-2">Subsidiary of</div>
+        <img src="images/pln.png" class="img-fluid mx-2" alt="gambar">
+      </div>
+    </div>
+
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col">
+          <p class="login-heading-1">Halo, selamat datang!</p>
+          <p class="login-heading-2">Mudahkan konfigurasi perangkat dengan AutoConfig </p>
+          <p class="login-heading-3">Masukkan email dan password untuk melanjutkannya</p>
+        </div>
+        <div class="col">
+          <form>
+            <div class="d-flex flex-column justify-content-end">
+              <label for="email" class="form-login">Email:</label>
+              <input class="input-login" type="text" id="email" name="email">
+              <label for="password" class="form-login">Password:</label>
+              <input class="input-login" type="password" id="password" name="password">
+            </div>
+            <div id="alertLogin" class="d-none alert alert-danger" role="alert">
+              Email atau Password Salah
+            </div>
+            <div class="d-flex justify-content-end mt-3">
+              <button id="login" class="btn btn-primary" type="button">Login</button>  
+            </div>
+            
+          </form> 
+        </div>
+      </div>
+    </div>
+
+    <%- include('../partials/scriptCdn.ejs') %>
+
+    <script src="/js/services/auth.js"></script>
+    <script>
+      $("#login").click(function(){
+        login($('#email').val(),$('#password').val())
+          .then((response)=>{
+            $( "#alertLogin" ).addClass( "d-none" )
+            if (response.data.message === "Log in Berhasil") {
+              window.location.replace(`${API_URL}/dashboard`)
+            }
+            if (response.data.message === "Email atau Password Salah") {
+              $( "#alertLogin" ).removeClass( "d-none" )
+            }
+          })
+          .catch((err)=>{console.log(err)})
+      });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="id">
+  
+  <%- include('../partials/head.ejs') %>
+    <title>Detail Config</title>
+    <link href="/css/navAndSidebar.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+  </head>
+
+  <body>
+    <%- include('../partials/navAndSideBar.ejs') %>
+    <div class="row mt-5 ms-5">
+      <label class="col-1 col-form-label">Perangkat: </label>
+      <div class="col-3">
+        <select class="form-select" id="jenis_perangkat" disabled readonly>
+          <option value="">Pilih Perangkat</option>
+          <option value="H3C" <%= config.jenis_perangkat === "H3C" && "selected"%>>H3C</option>
+          <option value="CTCU" <%= config.jenis_perangkat === "CTCU" && "selected"%>>CTCU</option>
+          <option value="BDCOM" <%= config.jenis_perangkat === "BDCOM" && "selected"%>>BDCOM</option>
+        </select>
+        <div id="cekJenisPerangkat" class="invalid-feedback">
+          Perangkat belum dipilih
+        </div>     
+     </div>
+    </div>
+    <div class="container mt-4 bg-white">
+      <h5 class="py-3">Silahkan inputkan terminasi perangkat .</h5>
+      <div class="row row-cols-2 g-3">
+
+        <div class="col">
+          <div class="row mb-3 justify-content-center">
+            <label for="namaCustomer" class="col-sm-3 col-form-label px-0">Nama Customer:</label>
+            <div class="col-sm-3 px-0">
+              <input type="text" class="form-control px-0" id="namaCustomer" 
+                value="<%= config.nama_customer %>" disabled readonly>
+              <div id="cekNamaCustomer" class="invalid-feedback">
+                Nama Customer tidak boleh kosong
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="row mb-3 justify-content-center">
+            <label for="subnet" class="col-sm-3 col-form-label px-0">Subnet:</label>
+            <div class="col-sm-3 px-0">
+              <input type="text" class="form-control px-0" id="subnet" 
+              value="<%= config.subnet %>" disabled readonly>
+              <div id="cekSubnet" class="invalid-feedback">
+                Subnet tidak boleh kosong
+              </div>
+            </div>
+          </div>
+        </div> 
+
+        <div class="col">
+          <div class="row mb-3 justify-content-center">
+            <label for="namaPerangkat" class="col-sm-3 col-form-label px-0">Nama Perangkat:</label>
+            <div class="col-sm-3 px-0">
+              <input type="text" class="form-control px-0" id="namaPerangkat" 
+              value="<%= config.nama_perangkat %>" disabled readonly>
+              <div id="cekNamaPerangkat" class="invalid-feedback">
+                Nama Perangkat tidak boleh kosong
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="row mb-3 justify-content-center">
+            <label for="ipRoute" class="col-sm-3 col-form-label px-0">Ip Route:</label>
+            <div class="col-sm-3 px-0">
+              <input type="text" class="form-control px-0" id="ipRoute" 
+              value="<%= config.ip_route %>" disabled readonly>
+              <div id="cekIpRoute" class="invalid-feedback">
+                Nama Perangkat tidak boleh kosong
+              </div>
+            </div>
+          </div>
+        </div> 
+
+        <div class="col">
+          <div class="row mb-3 justify-content-center">
+            <label for="layanan" class="col-sm-3 col-form-label px-0">Layanan:</label>
+            <div class="col-sm-3 px-0">
+              <input type="text" class="form-control px-0" id="layanan" 
+              value="<%= config.layanan %>" disabled readonly>
+              <div id="cekLayanan" class="invalid-feedback">
+                Layanan tidak boleh kosong
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="row mb-3 justify-content-center">
+            <label for="portPerangkat" class="col-sm-3 col-form-label px-0">Port Perangkat:</label>
+            <div class="col-sm-3 px-0">
+              <input type="text" class="form-control px-0" id="portPerangkat" 
+              value="<%= config.port_perangkat %>" disabled readonly>
+              <div id="cekPortPerangkat" class="invalid-feedback">
+                Port Perangkat tidak boleh kosong
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="row mb-3 justify-content-center">
+            <label for="vlanLayanan" class="col-sm-3 col-form-label px-0">Vlan layanan:</label>
+            <div class="col-sm-3 px-0">
+              <input type="text" class="form-control px-0" id="vlanLayanan" 
+              value="<%= config.vlan_layanan %>" disabled readonly>
+              <div id="cekVlanLayanan" class="invalid-feedback">
+                Vlan Layanan tidak boleh kosong
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="row mb-3 justify-content-center">
+            <label for="deskripsiPerangkat" class="col-sm-3 col-form-label px-0">Deskripsi Perangkat:</label>
+            <div class="col-sm-3 px-0">
+              <input type="text" class="form-control px-0" id="deskripsiPerangkat" 
+              value="<%= config.deskripsi_perangkat %>" disabled readonly>
+              <div id="cekDeskripsiPerangkat" class="invalid-feedback">
+                Deskripsi Perangkat tidak boleh kosong
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="row mb-3 justify-content-center">
+            <label for="vlanNms" class="col-sm-3 col-form-label px-0">Vlan NMS:</label>
+            <div class="col-sm-3 px-0">
+              <input type="text" class="form-control px-0" id="vlanNms" 
+              value="<%= config.vlan_nms %>" disabled readonly>
+              <div id="cekVlanNms" class="invalid-feedback">
+                Vlan NMS tidak boleh kosong
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="row mb-3 justify-content-center">
+            <label for="portTrunk" class="col-sm-3 col-form-label px-0">Port Trunk:</label>
+            <div class="col-sm-3 px-0">
+              <input type="text" class="form-control px-0" id="portTrunk" 
+              value="<%= config.port_trunk %>" disabled readonly>
+              <div id="cekPortTrunk" class="invalid-feedback">
+                Port Trunk tidak boleh kosong
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="row mb-3 justify-content-center">
+            <label for="ipAddress" class="col-sm-3 col-form-label px-0">IP Address:</label>
+            <div class="col-sm-3 px-0">
+              <input type="text" class="form-control px-0" id="ipAddress" 
+              value="<%= config.ip_address %>" disabled readonly>
+              <div id="cekIpAddress" class="invalid-feedback">
+                Ip address tidak boleh kosong
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="row mb-3 justify-content-center">
+            <label for="deskripsiTrunk" class="col-sm-3 col-form-label px-0">Deskripsi Trunk:</label>
+            <div class="col-sm-3 px-0">
+              <input type="text" class="form-control px-0" id="deskripsiTrunk" 
+              value="<%= config.deskripsi_trunk %>" disabled readonly>
+              <div id="cekNamaPerangkat" class="invalid-feedback">
+                Deskripsi Trunk tidak boleh kosong
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="hstack mx-auto gap-3 justify-content-center">
+        <a class="btn btn-success btn-lg mt-3 mb-3" 
+          href='<%=baseUrl%>/api/download_config/<%= config.id %>' download="filename"
+        >
+          Download
+        </a>
+        <a class="btn btn-warning btn-lg mt-3 mb-3" 
+          href='<%=baseUrl%>/dashboard/edit_config/<%= config.id %>'
+        >
+          Edit
+        </a>
+      </div>
+
+    </div>
+
+    <%- include('../partials/navAndSideBarLanjutan.ejs') %>
+    
+    <%- include('../partials/scriptCdn.ejs') %>
+    <%- include('../partials/dashboardScript.ejs') %>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  </body>
+
+</html>

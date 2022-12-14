@@ -1,0 +1,59 @@
+<div class="d-flex" id="wrapper">
+    <!-- Sidebar-->
+    <div class="border-end" id="sidebar-wrapper">
+        <div class="sidebar-heading border-bottom">AutoConfig</div>
+        <div class="list-group list-group-flush">
+            <%- user.jabatan === "Admin" ? 
+
+            '<a class="list-group-item list-group-item-action p-3 mt-5" href="' + baseUrl + '/dashboard/profil_admin" >' +
+             '<h1 class="text-center bi bi-person-circle"></h1>' +
+             '<p class="text-center">'+ user.nama + '</p>' +
+            '</a>'
+                :
+            '<a class="list-group-item list-group-item-action p-3 mt-5" href="' + baseUrl + '/dashboard/profil_staff" >' +
+             '<h1 class="text-center bi bi-person-circle"></h1>' +
+             '<p class="text-center">'+ user.nama + '</p>' +
+            '</a>'
+
+            %>
+            
+            
+        </div>
+    </div>
+    <!-- Page content wrapper-->
+    <div id="page-content-wrapper">
+        <!-- Top navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+            <div class="container-fluid">
+                <button class="btn btn-primary" id="sidebarToggle"><i class="bi bi-list"></i></button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href= "<%= baseUrl %>/dashboard/input_config" >
+                                Config
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href= "<%= baseUrl %>/dashboard/history" >
+                                History
+                            </a>
+                        </li>
+                        <%- user.jabatan === "Admin" ?
+                        '<li class="nav-item">' +
+                            '<a class="nav-link" href= "'+ baseUrl +'/dashboard/data_user">' +
+                                "Data User" +
+                            '</a>'+
+                        '</li>'
+                        :
+                        null
+                        %>
+                    </ul>
+                    <a class="fs-2 ms-auto bi bi-box-arrow-right" href="#!" id="logout"></a>
+                </div>
+            </div>
+        </nav>
+        <!-- Page content-->
+        <div class="main-content container-fluid">
+        
+        

@@ -1,0 +1,87 @@
+body {
+	background-image: url('../images/background_login.png');
+    height: 100vh;
+}
+
+.auto-config {
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 36px;
+	color: #001048;
+}
+
+.we-speak {
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 24px;
+	color: #001048;
+}
+
+.beyond-connectivity {
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 24px;
+	color: #EC1B24;
+}
+
+.subsidiary-of {
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 22px;
+	color: #7D7D7D;
+}
+
+.login-heading-1 {
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 36px;
+	color: #EC1B24;
+}
+
+.login-heading-2 {
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 800;
+	font-size: 32px;
+	line-height: 48px;
+	color: #001048;
+}
+
+.login-heading-3 {
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 30px;
+	color: #EC1B24;
+}
+
+.form-login {
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 30px;
+
+	color: #000000;
+}
+
+.input-login {
+	background-color:rgba(0, 0, 0, 0);
+	border: none;
+	border-bottom: 1px solid #001048;
+}
+
+.input-login:focus {
+	outline: none;
+}

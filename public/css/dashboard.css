@@ -1,0 +1,32 @@
+.text1{
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 30px;
+	color: #001048;
+}
+
+.nama-user {
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 25px;
+	line-height: 38px;
+	color: #EC1B24;
+}
+
+.text2 {
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 25px;
+	line-height: 38px;
+
+	color: #001048;
+}
+
+.bgDash {
+	background: #FFFFFF;
+	border-radius: 15px;
+}
